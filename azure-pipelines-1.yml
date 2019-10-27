@@ -41,9 +41,10 @@ steps:
 
 
 # Push non test NuGet packages from a build to internal organization Feed
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: 'push'
-#     searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-#     feedPublish: 'sachanugetfeed'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    selectOrConfig: 'select'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    vstsFeed: 'sachanugetfeed'
   
