@@ -32,13 +32,13 @@ steps:
 - task: DotNetCoreCLI@2
   inputs: 
     command: 'pack'
-    outputDir: '$(Build.ArtifactStagingDirectory)/MathsLib'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
 
 
 # Push non test NuGet packages from a build to internal organization Feed
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'push'
-    searchPatternPush: '$(Build.ArtifactStagingDirectory)/MathsLib/*.nupkg'
-    feedPublish: 'sachanugetfeed'
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'push'
+#     searchPatternPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+#     feedPublish: 'sachanugetfeed'
   
