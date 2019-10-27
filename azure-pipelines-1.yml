@@ -32,7 +32,12 @@ steps:
 - task: DotNetCoreCLI@2
   inputs: 
     command: 'pack'
+    projects: '**/MathsLib.csproj'
     outputDir: '$(Build.ArtifactStagingDirectory)'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '0'
 
 
 # Push non test NuGet packages from a build to internal organization Feed
